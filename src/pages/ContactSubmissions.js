@@ -41,7 +41,7 @@ function ContactSubmissions() {
   const fetchSubmissions = async () => {
     try {
       setLoading(true);
-      const response = await axios.get("http://localhost:8080/api/contact/all", {withCredentials:true});
+      const response = await axios.get("https://alumni-back-yabh.onrender.com/api/contact/all", {withCredentials:true});
       setSubmissions(response.data);
     } catch (error) {
       console.error("Error fetching contact submissions:", error);
@@ -53,7 +53,7 @@ function ContactSubmissions() {
 
   const markAsResolved = async (id) => {
     try {
-      await axios.put(`http://localhost:8080/api/contact/${id}/resolve`, {}, {withCredentials:true});
+      await axios.put(`https://alumni-back-yabh.onrender.com/api/contact/${id}/resolve`, {}, {withCredentials:true});
       toast.success("Marked as resolved");
       fetchSubmissions();
     } catch (error) {
@@ -96,7 +96,7 @@ function ContactSubmissions() {
 
   const performDelete = async (id) => {
     try {
-      await axios.delete(`http://localhost:8080/api/contact/${id}`, {withCredentials: true});
+      await axios.delete(`https://alumni-back-yabh.onrender.com/api/contact/${id}`, {withCredentials: true});
       toast.success("Message deleted successfully");
       fetchSubmissions();
     } catch (error) {

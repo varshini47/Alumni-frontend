@@ -27,7 +27,7 @@ const AlumniList = () => {
 
   // const fetchConnections = async () => {
   //   try {
-  //     const response = await axios.get(`http://localhost:8080/api/connections/user/${user.id}`, { withCredentials: true });
+  //     const response = await axios.get(`https://alumni-back-yabh.onrender.com/api/connections/user/${user.id}`, { withCredentials: true });
   //     const connectionsMap = {};
   //     response.data.forEach(conn => {
   //       if (conn.sender.id === user.id) {
@@ -45,7 +45,7 @@ const AlumniList = () => {
   const fetchConnections = async () => {
     try {
       const response = await axios.get(
-        `http://localhost:8080/api/connections/user/${user.id}`,
+        `https://alumni-back-yabh.onrender.com/api/connections/user/${user.id}`,
         { withCredentials: true }
       );
   
@@ -81,7 +81,7 @@ const AlumniList = () => {
 
   const sendRequest = async (receiverId) => {
     try {
-      await axios.post(`http://localhost:8080/api/connections/send/${user.id}/${receiverId}`, {}, { withCredentials: true });
+      await axios.post(`https://alumni-back-yabh.onrender.com/api/connections/send/${user.id}/${receiverId}`, {}, { withCredentials: true });
       setConnections(prev => ({ ...prev, [receiverId]: 'PENDING' }));
       toast.success("Connection request sent!");
     } catch (error) {
@@ -161,7 +161,7 @@ const AlumniList = () => {
   const fetchAlumni = async () => {
     setLoading(true);
     try {
-      const response = await axios.get("http://localhost:8080/api/users", { withCredentials: true });
+      const response = await axios.get("https://alumni-back-yabh.onrender.com/api/users", { withCredentials: true });
       const alumniData = response.data;
       setAlumni(alumniData);
       setFilteredAlumni(alumniData);
@@ -238,7 +238,7 @@ const AlumniList = () => {
 
   const deleteAlumni = async (id) => {
     try {
-      await axios.delete(`http://localhost:8080/api/users/${id}`, { withCredentials: true });
+      await axios.delete(`https://alumni-back-yabh.onrender.com/api/users/${id}`, { withCredentials: true });
       setAlumni(alumni.filter((alumnus) => alumnus.id !== id));
       toast.success("Alumni deleted successfully");
     } catch (error) {

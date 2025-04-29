@@ -24,7 +24,7 @@ export function UserProvider({ children }) {
   // Fetch updated user data from backend
   const fetchUserData = async (userId) => {
     try {
-      const response = await axios.get(`http://localhost:8080/api/users/${userId}`);
+      const response = await axios.get(`https://alumni-back-yabh.onrender.com/api/users/${userId}`);
       setUser((prevUser) => ({
         ...prevUser, // Keep existing properties
         ...response.data, // Update with new data

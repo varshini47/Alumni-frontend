@@ -12,7 +12,7 @@
  
 //   const handleLogout = async () => {
 //     try {
-//       await axios.post("http://localhost:8080/api/logout", {}, { withCredentials: true });
+//       await axios.post("https://alumni-back-yabh.onrender.com/api/logout", {}, { withCredentials: true });
 //       logoutUser();
 //       navigate("/");
 //     } catch (error) {

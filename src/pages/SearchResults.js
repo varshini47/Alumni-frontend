@@ -17,7 +17,7 @@ const SearchResults = () => {
       const fetchUsers = async () => {
         try {
           const response = await fetch(
-            `http://localhost:8080/api/search?type=${searchType}&query=${searchQuery}`
+            `https://alumni-back-yabh.onrender.com/api/search?type=${searchType}&query=${searchQuery}`
           );
           const data = await response.json();
           setUsers(data);

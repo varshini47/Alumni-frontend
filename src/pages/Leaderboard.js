@@ -16,7 +16,7 @@ function Leaderboard() {
 
   useEffect(() => {
     setIsLoading(true);
-    axios.get("http://localhost:8080/api/users/leaderboard", { withCredentials: true })
+    axios.get("https://alumni-back-yabh.onrender.com/api/users/leaderboard", { withCredentials: true })
       .then(response => {
         setUsers(response.data);
         setFilteredUsers(response.data.filter(user => user.role === "ALUMNI"));

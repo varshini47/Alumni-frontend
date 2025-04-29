@@ -28,14 +28,14 @@ const Chat = () => {
 
     useEffect(() => {
         if (!userId) return;
-        axios.get(`http://localhost:8080/api/chat/recent/${userId}`, { withCredentials: true })
+        axios.get(`https://alumni-back-yabh.onrender.com/api/chat/recent/${userId}`, { withCredentials: true })
             .then(response => setRecentUsers(response.data))
             .catch(error => console.error("Error fetching recent contacts:", error));
     }, [userId]);
    
 
     // const updateMessage = (id, newContent) => {
-    //     axios.put(`http://localhost:8080/api/chat/edit/${id}`, newContent, {
+    //     axios.put(`https://alumni-back-yabh.onrender.com/api/chat/edit/${id}`, newContent, {
     //         headers: { "Content-Type": "text/plain" },
     //         withCredentials: true
     //     })
@@ -54,7 +54,7 @@ const Chat = () => {
     // };
 
     const updateMessage = (id, newContent) => {
-        axios.put(`http://localhost:8080/api/chat/edit/${id}`, newContent, {
+        axios.put(`https://alumni-back-yabh.onrender.com/api/chat/edit/${id}`, newContent, {
             headers: { "Content-Type": "text/plain" },
             withCredentials: true
         })
@@ -91,7 +91,7 @@ const Chat = () => {
     
     // ✅ Delete Message
     // const deleteMessage = (id) => {
-    //     axios.delete(`http://localhost:8080/api/chat/delete/${id}`)
+    //     axios.delete(`https://alumni-back-yabh.onrender.com/api/chat/delete/${id}`)
     //     .then(() => {
     //         console.log("Message deleted");
     //         setEditingIndex(null);  // Close the menu after deleting the message
@@ -102,7 +102,7 @@ const Chat = () => {
     useEffect(() => {
         console.log("Bye");
         if (!userId || !receiverId) return;
-        axios.get(`http://localhost:8080/api/chat/history/${userId}/${receiverId}`)
+        axios.get(`https://alumni-back-yabh.onrender.com/api/chat/history/${userId}/${receiverId}`)
             .then(response => setMessages(response.data))
             .catch(error => console.error("Error fetching messages:", error));
         scrollToBottom();   
@@ -117,7 +117,7 @@ const Chat = () => {
             return;
         prevuserId = userId;
     
-        const socket = new SockJS("http://localhost:8080/chat");
+        const socket = new SockJS("https://alumni-back-yabh.onrender.com/chat");
         const stompClient = new Client({
             webSocketFactory: () => socket,
             connectHeaders: { userId: userId.toString() },
@@ -147,7 +147,7 @@ const Chat = () => {
                             if (!exists) {
                                 console.log("User not in recent chats, fetching details...");
 
-                                axios.get(`http://localhost:8080/api/users/${parsedMessage.senderId}`)
+                                axios.get(`https://alumni-back-yabh.onrender.com/api/users/${parsedMessage.senderId}`)
                                     .then(response => {
                                         const userDetails = response.data;
                                         if (prev_users != recentUsers) {
@@ -158,7 +158,7 @@ const Chat = () => {
                                     .catch(error => console.error("Error fetching user details:", error));
                             }
                             else {
-                                axios.get(`http://localhost:8080/api/chat/recent/${userId}`, { withCredentials: true })
+                                axios.get(`https://alumni-back-yabh.onrender.com/api/chat/recent/${userId}`, { withCredentials: true })
                                     .then(response => setRecentUsers(response.data))
                                     .catch(error => console.error("Error fetching recent contacts:", error));
                             }
@@ -254,7 +254,7 @@ const Chat = () => {
     //         setSearchResults([]);
     //         return;
     //     }
-    //     axios.get(`http://localhost:8080/api/searchchat?query=${searchQuery}`)
+    //     axios.get(`https://alumni-back-yabh.onrender.com/api/searchchat?query=${searchQuery}`)
     //         .then(response => setSearchResults(response.data))
     //         .catch(error => console.error("Error fetching users:", error));
     // }, [searchQuery]);
@@ -264,7 +264,7 @@ const Chat = () => {
             setSearchResults([]);
             return;
         }
-        axios.get(`http://localhost:8080/api/searchchat?query=${searchQuery}`)
+        axios.get(`https://alumni-back-yabh.onrender.com/api/searchchat?query=${searchQuery}`)
             .then(response => {
                 // Filter out users with role "admin"
                 const filteredResults = response.data.filter(user => user.role !== "admin");
@@ -276,7 +276,7 @@ const Chat = () => {
 
 
     useEffect(()=>{
-     axios.get(`http://localhost:8080/api/chat/recent/${userId}`,{withCredentials:true}).then(response=>setRecentUsers(response.data)).catch(error=>console.error("Error fetching recent users"));
+     axios.get(`https://alumni-back-yabh.onrender.com/api/chat/recent/${userId}`,{withCredentials:true}).then(response=>setRecentUsers(response.data)).catch(error=>console.error("Error fetching recent users"));
     },[messages]);
 
     const handleUserSelect = (user) => {

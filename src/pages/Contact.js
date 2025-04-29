@@ -30,7 +30,7 @@ function Contact() {
     
     try {
       // Send the contact form data to the backend
-      await axios.post('http://localhost:8080/api/contact/submit', formData,{withCredentials:true});
+      await axios.post('https://alumni-back-yabh.onrender.com/api/contact/submit', formData,{withCredentials:true});
       
       toast.success("Thank you for your message! We'll get back to you soon.");
       setFormData({ name: '', email: '', message: '' });

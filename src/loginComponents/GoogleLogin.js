@@ -24,7 +24,7 @@ const GoogleLoginButton = () => {
 
         // Send user info to your Spring Boot backend
         const backendResponse = await axios.post(
-          "http://localhost:8080/api/google-login",
+          "https://alumni-back-yabh.onrender.com/api/google-login",
           { email, firstName: given_name, lastName: family_name },
           { withCredentials: true }
         );

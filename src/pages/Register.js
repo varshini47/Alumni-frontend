@@ -61,7 +61,7 @@
 
 //       const userData = { name, lastName, email, password, role, profileType, phone, batch, rollNo, department, imageUrl: uploadedImageUrl };
 
-//       await axios.post("http://localhost:8080/api/register", userData, { withCredentials: true });
+//       await axios.post("https://alumni-back-yabh.onrender.com/api/register", userData, { withCredentials: true });
 //       toast.success("Registration successful!");
 //       navigate("/login");
 //     } catch (error) {
@@ -358,7 +358,7 @@ function Register() {
         imageUrl: uploadedImageUrl 
       };
 
-      await axios.post("http://localhost:8080/api/register", userData, { withCredentials: true });
+      await axios.post("https://alumni-back-yabh.onrender.com/api/register", userData, { withCredentials: true });
       toast.success("Registration successful!");
       navigate("/login");
     } catch (error) {

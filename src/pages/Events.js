@@ -117,7 +117,7 @@ function Events() {
     setIsSubmitting(true);
     
     try {
-      await axios.post("http://localhost:8080/api/events", formData, { withCredentials: true });
+      await axios.post("https://alumni-back-yabh.onrender.com/api/events", formData, { withCredentials: true });
       toast.success("Event posted successfully!");
       setFormData({
         eventName: "",
@@ -172,7 +172,7 @@ function Events() {
   
   const deleteEvent = async (eventId) => {
     try {
-      await axios.delete(`http://localhost:8080/api/events/${eventId}`, { withCredentials: true });
+      await axios.delete(`https://alumni-back-yabh.onrender.com/api/events/${eventId}`, { withCredentials: true });
       setEvents(events.filter((event) => event.id !== eventId));
       toast.success("Event deleted successfully");
     } catch (error) {
@@ -184,7 +184,7 @@ function Events() {
   // Fetch all events
   const fetchEvents = async () => {
     try {
-      const response = await axios.get("http://localhost:8080/api/events", { withCredentials: true });
+      const response = await axios.get("https://alumni-back-yabh.onrender.com/api/events", { withCredentials: true });
       const eventsArray = Array.isArray(response.data) ? response.data.reverse() : [response.data];
       setEvents(eventsArray);
       setFilteredEvents(eventsArray);

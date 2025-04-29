@@ -39,7 +39,7 @@
 //         console.log(user.id);
 //         try {
 //             await axios.put(
-//                 `http://localhost:8080/api/users/${user.id}/updateProfile`,
+//                 `https://alumni-back-yabh.onrender.com/api/users/${user.id}/updateProfile`,
 //                 { ...updatedUser, imageUrl: uploadedImageUrl },
 //                 { withCredentials: true }
 //             );
@@ -233,7 +233,7 @@ function UpdateProfile() {
 
     try {
       await axios.put(
-        `http://localhost:8080/api/users/${user.id}/updateProfile`,
+        `https://alumni-back-yabh.onrender.com/api/users/${user.id}/updateProfile`,
         { ...updatedUser, imageUrl: uploadedImageUrl },
         { withCredentials: true }
       );

@@ -33,7 +33,7 @@ const EditWorkExperienceForm = () => {
   useEffect(() => {
     const fetchWorkExperience = async () => {
       try {
-        const response = await axios.get(`http://localhost:8080/api/work-experience/${id}`);
+        const response = await axios.get(`https://alumni-back-yabh.onrender.com/api/work-experience/${id}`);
         const data = response.data;
 
         // Convert [YYYY, MM, DD] to "YYYY-MM-DD"
@@ -110,7 +110,7 @@ const EditWorkExperienceForm = () => {
         isPresent: present ? true : false 
       };
       
-      await axios.put(`http://localhost:8080/api/work-experience/${id}`, requestData, {
+      await axios.put(`https://alumni-back-yabh.onrender.com/api/work-experience/${id}`, requestData, {
         withCredentials: true,
       });
       toast.success("Work Experience Updated Successfully!");

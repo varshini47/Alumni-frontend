@@ -51,14 +51,14 @@ const WorkExperienceList = () => {
 
     const fetchWorkExperiences = async () => {
         try {
-            const response = await axios.get("http://localhost:8080/api/work-experience", { withCredentials: true });
+            const response = await axios.get("https://alumni-back-yabh.onrender.com/api/work-experience", { withCredentials: true });
             let workExpArray = Array.isArray(response.data) ? response.data.reverse() : [response.data];
             
             // Fetch user details for each work experience
             const updatedWorkExperiences = await Promise.all(
                 workExpArray.map(async (workExp) => {
                     try {
-                        const userResponse = await axios.get(`http://localhost:8080/api/users/${workExp.user.id}`, { withCredentials: true });
+                        const userResponse = await axios.get(`https://alumni-back-yabh.onrender.com/api/users/${workExp.user.id}`, { withCredentials: true });
                         return { ...workExp, user: userResponse.data }; // Add user data to work experience
                     } catch {
                         return { ...workExp, user: null }; // Handle errors (user not found, etc.)
@@ -107,7 +107,7 @@ const WorkExperienceList = () => {
     };
     
     const confirmDelete = (id) => {
-        axios.delete(`http://localhost:8080/api/work-experience/${id}`, { withCredentials: true })
+        axios.delete(`https://alumni-back-yabh.onrender.com/api/work-experience/${id}`, { withCredentials: true })
             .then(() => {
                 setWorkExperiences(workExperiences.filter(exp => exp.id !== id));
                 toast.success("Work experience deleted successfully");

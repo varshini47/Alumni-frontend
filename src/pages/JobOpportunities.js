@@ -31,7 +31,7 @@
 
 //   const fetchJobs = async () => {
 //     try {
-//       const response = await axios.get("http://localhost:8080/api/jobs", { withCredentials: true });
+//       const response = await axios.get("https://alumni-back-yabh.onrender.com/api/jobs", { withCredentials: true });
 //       const jobOppurtunitiesArray = Array.isArray(response.data) ? response.data.reverse() : [response.data];
 //       setJobs(jobOppurtunitiesArray);
 //     } catch (error) {
@@ -47,7 +47,7 @@
 //     e.preventDefault();
 //     try {
 //       formData.userId = user.id;
-//       await axios.post("http://localhost:8080/api/jobs", formData, { withCredentials: true });
+//       await axios.post("https://alumni-back-yabh.onrender.com/api/jobs", formData, { withCredentials: true });
 //       toast.success("Job posted successfully!");
 //       setFormData({
 //         title: "",
@@ -103,7 +103,7 @@
 
 //   const performDelete = async (jobId) => {
 //     try {
-//       await axios.delete(`http://localhost:8080/api/jobs/${jobId}`, { withCredentials: true });
+//       await axios.delete(`https://alumni-back-yabh.onrender.com/api/jobs/${jobId}`, { withCredentials: true });
 //       setJobs(jobs.filter((job) => job.id !== jobId));
 //       toast.success("Job deleted successfully");
 //     } catch (error) {
@@ -385,7 +385,7 @@ function JobOpportunities() {
 
   const fetchJobs = async () => {
     try {
-      const response = await axios.get("http://localhost:8080/api/jobs", { withCredentials: true });
+      const response = await axios.get("https://alumni-back-yabh.onrender.com/api/jobs", { withCredentials: true });
       const jobOpportunitiesArray = Array.isArray(response.data) ? response.data.reverse() : [response.data];
       setJobs(jobOpportunitiesArray);
       setFilteredJobs(jobOpportunitiesArray);
@@ -435,7 +435,7 @@ function JobOpportunities() {
     
     try {
       formData.userId = user.id;
-      await axios.post("http://localhost:8080/api/jobs", formData, { withCredentials: true });
+      await axios.post("https://alumni-back-yabh.onrender.com/api/jobs", formData, { withCredentials: true });
       toast.success("Job posted successfully!");
       setFormData({
         title: "",
@@ -492,7 +492,7 @@ function JobOpportunities() {
 
   const performDelete = async (jobId) => {
     try {
-      await axios.delete(`http://localhost:8080/api/jobs/${jobId}`, { withCredentials: true });
+      await axios.delete(`https://alumni-back-yabh.onrender.com/api/jobs/${jobId}`, { withCredentials: true });
       setJobs(jobs.filter((job) => job.id !== jobId));
       toast.success("Job deleted successfully");
     } catch (error) {

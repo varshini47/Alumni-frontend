@@ -10,7 +10,7 @@ function GoogleRegister() {
   const googleLogin = () => {
     // Store that we're in the process of Google registration
     localStorage.setItem('googleRegistrationStarted', 'true');
-    window.location.href = 'http://localhost:8080/oauth2/authorization/google';
+    window.location.href = 'https://alumni-back-yabh.onrender.com/oauth2/authorization/google';
   };
 
   // The backend should redirect to your app after OAuth process

@@ -16,7 +16,7 @@
 //   useEffect(() => {
 //     const fetchAchievements = async () => {
 //       try {
-//         const response = await axios.get(`http://localhost:8080/api/achievements/user/${alumniId}`, { withCredentials: true });
+//         const response = await axios.get(`https://alumni-back-yabh.onrender.com/api/achievements/user/${alumniId}`, { withCredentials: true });
 //         const achievementsArray = Array.isArray(response.data) ? response.data.reverse() : [response.data];
 //         setAchievements(achievementsArray);
 //         // setAchievements(response.data);
@@ -65,7 +65,7 @@
   
 //   const deleteAchievement = async (achievementId) => {
 //     try {
-//       await axios.delete(`http://localhost:8080/api/achievements/${achievementId}`, { withCredentials: true });
+//       await axios.delete(`https://alumni-back-yabh.onrender.com/api/achievements/${achievementId}`, { withCredentials: true });
 //       setAchievements(achievements.filter(achievement => achievement.id !== achievementId));
 //       toast.success("Achievement deleted successfully");
 //     } catch (error) {
@@ -192,7 +192,7 @@ const AlumniAchievements = () => {
       try {
         // Fetch achievements
         const achievementsResponse = await axios.get(
-          `http://localhost:8080/api/achievements/user/${alumniId}`, 
+          `https://alumni-back-yabh.onrender.com/api/achievements/user/${alumniId}`, 
           { withCredentials: true }
         );
         const achievementsArray = Array.isArray(achievementsResponse.data) ? 
@@ -201,7 +201,7 @@ const AlumniAchievements = () => {
         
         // Fetch alumni info
         const alumniResponse = await axios.get(
-          `http://localhost:8080/api/users/${alumniId}`, 
+          `https://alumni-back-yabh.onrender.com/api/users/${alumniId}`, 
           { withCredentials: true }
         );
         setAlumniInfo(alumniResponse.data);
@@ -250,7 +250,7 @@ const AlumniAchievements = () => {
   
   const deleteAchievement = async (achievementId) => {
     try {
-      await axios.delete(`http://localhost:8080/api/achievements/${achievementId}`, { withCredentials: true });
+      await axios.delete(`https://alumni-back-yabh.onrender.com/api/achievements/${achievementId}`, { withCredentials: true });
       setAchievements(achievements.filter(achievement => achievement.id !== achievementId));
       toast.success("Achievement deleted successfully");
     } catch (error) {

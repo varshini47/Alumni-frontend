@@ -40,7 +40,7 @@ const Gallery = () => {
     };
 
     useEffect(() => {
-        axios.get("http://localhost:8080/api/gallery/folders")
+        axios.get("https://alumni-back-yabh.onrender.com/api/gallery/folders")
             .then(response => setFolders(response.data))
             .catch(error => {
                 toast.error("Failed to fetch folders");
@@ -50,7 +50,7 @@ const Gallery = () => {
     const openFolder = (folder) => {
         setCurrentFolder(folder.folderName);
         setCurrentFolderId(folder.id);
-        axios.get(`http://localhost:8080/api/gallery/folder/${folder.folderName}`)
+        axios.get(`https://alumni-back-yabh.onrender.com/api/gallery/folder/${folder.folderName}`)
             .then(response => setImages(response.data))
             .catch(error => {
                 toast.error(`Failed to open folder "${folder.folderName}"`);
@@ -70,7 +70,7 @@ const Gallery = () => {
             const imageUrl = await uploadToCloudinary(selectedFile);
             if (!imageUrl) throw new Error("Image upload failed");
 
-            await axios.post("http://localhost:8080/api/gallery/upload", {
+            await axios.post("https://alumni-back-yabh.onrender.com/api/gallery/upload", {
                 folderName: finalFolder,
                 imageUrl,
                 userId
@@ -123,7 +123,7 @@ const Gallery = () => {
     
     const deleteFolderConfirmed = async (folderId) => {
         try {
-            await axios.delete(`http://localhost:8080/api/gallery/folders/${folderId}`, { withCredentials: true });
+            await axios.delete(`https://alumni-back-yabh.onrender.com/api/gallery/folders/${folderId}`, { withCredentials: true });
             setFolders(folders.filter((folder) => folder.id !== folderId));
             toast.success("Folder deleted successfully");
         } catch (error) {
@@ -164,7 +164,7 @@ const Gallery = () => {
 
     const deleteImageConfirmed = async (folderId, imageUrl) => {
         try {
-            await axios.delete(`http://localhost:8080/api/gallery/${folderId}/images`, {
+            await axios.delete(`https://alumni-back-yabh.onrender.com/api/gallery/${folderId}/images`, {
                 data: { imageUrl },  // Send image URL in request body
                 withCredentials: true
             });

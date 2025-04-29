@@ -48,7 +48,7 @@
 //       const fetchUser = async () => {
 //         setLoading(true);
 //         try {
-//           const response = await axios.get(`http://localhost:8080/api/users/${id}`, { withCredentials: true });
+//           const response = await axios.get(`https://alumni-back-yabh.onrender.com/api/users/${id}`, { withCredentials: true });
 //           setAlumni(response.data);
 //           setProfileType(response.data.profileType);
 //         } catch (error) {
@@ -67,7 +67,7 @@
 //     if (user && user.firstName) {
 //       const fetchPoints = async () => {
 //         try {
-//           const response = await axios.get(`http://localhost:8080/api/users/${id}/points`, { withCredentials: true });
+//           const response = await axios.get(`https://alumni-back-yabh.onrender.com/api/users/${id}/points`, { withCredentials: true });
 //           setPoints(response.data.points);
 //         } catch (error) {
 //           console.error("Error fetching points:", error);
@@ -83,7 +83,7 @@
 //     if (user && user.firstName) {
 //       const fetchWorkExp = async () => {
 //         try {
-//           const response = await fetch(`http://localhost:8080/api/work-experience/user/${id}`, { withCredentials: true });
+//           const response = await fetch(`https://alumni-back-yabh.onrender.com/api/work-experience/user/${id}`, { withCredentials: true });
 //           if (!response.ok) {
 //             throw new Error("Failed to fetch work experience");
 //           }
@@ -104,7 +104,7 @@
 //     if (user && user.firstName) {
 //       const fetchAchievements = async () => {
 //         try {
-//           const response = await fetch(`http://localhost:8080/api/achievements/user/${id}`, { withCredentials: true });
+//           const response = await fetch(`https://alumni-back-yabh.onrender.com/api/achievements/user/${id}`, { withCredentials: true });
 //           if (!response.ok) {
 //             throw new Error("Failed to fetch achievement");
 //           }
@@ -124,7 +124,7 @@
 //     setProfileType(newType);
 //     try {
 //       await axios.put(
-//         `http://localhost:8080/api/users/${id}/updateProfile`,
+//         `https://alumni-back-yabh.onrender.com/api/users/${id}/updateProfile`,
 //         { profileType: newType },
 //         { withCredentials: true }
 //       );
@@ -370,7 +370,7 @@ function Profile() {
       const fetchUser = async () => {
         setLoading(true);
         try {
-          const response = await axios.get(`http://localhost:8080/api/users/${id}`, { withCredentials: true });
+          const response = await axios.get(`https://alumni-back-yabh.onrender.com/api/users/${id}`, { withCredentials: true });
           setAlumni(response.data);
           setProfileType(response.data.profileType);
         } catch (error) {
@@ -389,7 +389,7 @@ function Profile() {
     if (user && user.firstName) {
       const fetchPoints = async () => {
         try {
-          const response = await axios.get(`http://localhost:8080/api/users/${id}/points`, { withCredentials: true });
+          const response = await axios.get(`https://alumni-back-yabh.onrender.com/api/users/${id}/points`, { withCredentials: true });
           setPoints(response.data.points);
         } catch (error) {
           console.error("Error fetching points:", error);
@@ -405,7 +405,7 @@ function Profile() {
     if (user && user.firstName) {
       const fetchWorkExp = async () => {
         try {
-          const response = await fetch(`http://localhost:8080/api/work-experience/user/${id}`, { withCredentials: true });
+          const response = await fetch(`https://alumni-back-yabh.onrender.com/api/work-experience/user/${id}`, { withCredentials: true });
           if (!response.ok) {
             throw new Error("Failed to fetch work experience");
           }
@@ -426,7 +426,7 @@ function Profile() {
     if (user && user.firstName) {
       const fetchAchievements = async () => {
         try {
-          const response = await fetch(`http://localhost:8080/api/achievements/user/${id}`, { withCredentials: true });
+          const response = await fetch(`https://alumni-back-yabh.onrender.com/api/achievements/user/${id}`, { withCredentials: true });
           if (!response.ok) {
             throw new Error("Failed to fetch achievement");
           }
@@ -446,7 +446,7 @@ function Profile() {
     setProfileType(newType);
     try {
       await axios.put(
-        `http://localhost:8080/api/users/${id}/updateProfile`,
+        `https://alumni-back-yabh.onrender.com/api/users/${id}/updateProfile`,
         { profileType: newType },
         { withCredentials: true }
       );

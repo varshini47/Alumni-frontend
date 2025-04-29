@@ -12,7 +12,7 @@
 //     const handleResetPassword = async () => {
 //         try {
 //             const response = await axios.post(
-//                 "http://localhost:8080/api/email/reset-password",
+//                 "https://alumni-back-yabh.onrender.com/api/email/reset-password",
 //                 { userId, newPassword },
 //                 { withCredentials: true }
 //             );
@@ -146,7 +146,7 @@ const ResetPassword = () => {
 
         try {
             await axios.post(
-                "http://localhost:8080/api/email/reset-password",
+                "https://alumni-back-yabh.onrender.com/api/email/reset-password",
                 { userId, newPassword },
                 { withCredentials: true }
             );

@@ -19,7 +19,7 @@
 //   useEffect(() => {
 //     const fetchWorkExperiences = async () => {
 //       try {
-//         const response = await axios.get(`http://localhost:8080/api/work-experience/user/${alumniId}`);
+//         const response = await axios.get(`https://alumni-back-yabh.onrender.com/api/work-experience/user/${alumniId}`);
 //         const workExpArray = Array.isArray(response.data) ? response.data.reverse() : [response.data];
 //         setWorkExperiences(workExpArray);
 //       } catch (error) {
@@ -68,7 +68,7 @@
   
 //   const deleteWorkExperience = async (workId) => {
 //     try {
-//       await axios.delete(`http://localhost:8080/api/work-experience/${workId}`, { withCredentials: true });
+//       await axios.delete(`https://alumni-back-yabh.onrender.com/api/work-experience/${workId}`, { withCredentials: true });
 //       setWorkExperiences(workExperiences.filter(work => work.id !== workId));
 //       toast.success("Work experience deleted successfully");
 //     } catch (error) {
@@ -78,7 +78,7 @@
 
 //   const handleLogout = async () => {
 //     try {
-//       await axios.post("http://localhost:8080/api/logout", {}, { withCredentials: true });
+//       await axios.post("https://alumni-back-yabh.onrender.com/api/logout", {}, { withCredentials: true });
 //       logoutUser();
 //       navigate("/");
 //     } catch (error) {
@@ -168,14 +168,14 @@ const WorkExperiencePage = () => {
       setLoading(true);
       try {
         // Fetch work experiences
-        const workResponse = await axios.get(`http://localhost:8080/api/work-experience/user/${alumniId}`, 
+        const workResponse = await axios.get(`https://alumni-back-yabh.onrender.com/api/work-experience/user/${alumniId}`, 
           { withCredentials: true }
         );
         const workExpArray = Array.isArray(workResponse.data) ? workResponse.data : [workResponse.data];
         setWorkExperiences(workExpArray.sort((a, b) => b.id - a.id));
         
         // Fetch alumni info
-        const alumniResponse = await axios.get(`http://localhost:8080/api/users/${alumniId}`, 
+        const alumniResponse = await axios.get(`https://alumni-back-yabh.onrender.com/api/users/${alumniId}`, 
           { withCredentials: true }
         );
         setAlumniInfo(alumniResponse.data);
@@ -226,7 +226,7 @@ const WorkExperiencePage = () => {
   
   const deleteWorkExperience = async (workId) => {
     try {
-      await axios.delete(`http://localhost:8080/api/work-experience/${workId}`, { withCredentials: true });
+      await axios.delete(`https://alumni-back-yabh.onrender.com/api/work-experience/${workId}`, { withCredentials: true });
       setWorkExperiences(workExperiences.filter(work => work.id !== workId));
       toast.success("Work experience deleted successfully");
     } catch (error) {

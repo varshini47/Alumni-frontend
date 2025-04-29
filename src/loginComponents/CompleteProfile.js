@@ -22,7 +22,7 @@
 
 //   useEffect(() => {
 //     axios
-//       .get("http://localhost:8080/api/user-info", { withCredentials: true })
+//       .get("https://alumni-back-yabh.onrender.com/api/user-info", { withCredentials: true })
 //       .then((response) => setUser(response.data))
 //       .catch((error) => console.error("Error fetching user info:", error));
 //   }, []);
@@ -73,7 +73,7 @@
 //         profileType,
 //       };
 
-//       await axios.post("http://localhost:8080/api/complete-profile", completeUser, { withCredentials: true });
+//       await axios.post("https://alumni-back-yabh.onrender.com/api/complete-profile", completeUser, { withCredentials: true });
 //       toast.success("Profile completed successfully!");
 //       navigate("/login");
 //     } catch (error) {
@@ -260,7 +260,7 @@ function CompleteProfile() {
 
   useEffect(() => {
     axios
-      .get("http://localhost:8080/api/user-info", { withCredentials: true })
+      .get("https://alumni-back-yabh.onrender.com/api/user-info", { withCredentials: true })
       .then((response) => setUser(response.data))
       .catch((error) => console.error("Error fetching user info:", error));
   }, []);
@@ -384,7 +384,7 @@ function CompleteProfile() {
         profileType,
       };
 
-      await axios.post("http://localhost:8080/api/complete-profile", completeUser, { withCredentials: true });
+      await axios.post("https://alumni-back-yabh.onrender.com/api/complete-profile", completeUser, { withCredentials: true });
       toast.success("Profile completed successfully!");
       navigate("/login");
     } catch (error) {

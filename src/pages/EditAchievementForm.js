@@ -47,7 +47,7 @@ const EditAchievementForm = () => {
     useEffect(() => {
         const fetchAchievement = async () => {
             try {
-                const response = await axios.get(`http://localhost:8080/api/achievements/${id}`);
+                const response = await axios.get(`https://alumni-back-yabh.onrender.com/api/achievements/${id}`);
                 const data = response.data;
 
                 // Convert [YYYY, MM, DD] to "YYYY-MM-DD"
@@ -141,7 +141,7 @@ const EditAchievementForm = () => {
         setIsSubmitting(true);
         
         try {
-            await axios.put(`http://localhost:8080/api/achievements/${id}`, formData, {
+            await axios.put(`https://alumni-back-yabh.onrender.com/api/achievements/${id}`, formData, {
                 withCredentials: true,
             });
             toast.success("Achievement Updated Successfully!");
@@ -157,7 +157,7 @@ const EditAchievementForm = () => {
     const handleDelete = async () => {
         setIsDeleting(true);
         try {
-            await axios.delete(`http://localhost:8080/api/achievements/${id}`, { 
+            await axios.delete(`https://alumni-back-yabh.onrender.com/api/achievements/${id}`, { 
                 withCredentials: true 
             });
             toast.success("Achievement deleted successfully");

@@ -18,8 +18,8 @@ const Connections = () => {
     const fetchConnections = async () => {
         try {
             const [pendingRes, acceptedRes] = await Promise.all([
-                axios.get(`http://localhost:8080/api/connections/pending/${user.id}`, { withCredentials: true }),
-                axios.get(`http://localhost:8080/api/connections/accepted/${user.id}`, { withCredentials: true })
+                axios.get(`https://alumni-back-yabh.onrender.com/api/connections/pending/${user.id}`, { withCredentials: true }),
+                axios.get(`https://alumni-back-yabh.onrender.com/api/connections/accepted/${user.id}`, { withCredentials: true })
             ]);
             setPending(pendingRes.data);
             setAccepted(acceptedRes.data);
@@ -33,7 +33,7 @@ const Connections = () => {
 
     const acceptRequest = async (requestId) => {
         try {
-            await axios.post(`http://localhost:8080/api/connections/accept/${requestId}`,{ withCredentials: true });
+            await axios.post(`https://alumni-back-yabh.onrender.com/api/connections/accept/${requestId}`,{ withCredentials: true });
             const updatedRequest = pending.find(req => req.id === requestId);
             setPending(prev => prev.filter(req => req.id !== requestId));
             setAccepted(prev => [...prev, { ...updatedRequest, status: 'ACCEPTED' }]);
@@ -46,7 +46,7 @@ const Connections = () => {
 
     const rejectRequest = async (requestId) => {
         try {
-            await axios.post(`http://localhost:8080/api/connections/reject/${requestId}`, {}, { withCredentials: true });
+            await axios.post(`https://alumni-back-yabh.onrender.com/api/connections/reject/${requestId}`, {}, { withCredentials: true });
             setPending(prev => prev.filter(req => req.id !== requestId));
             toast.success("Connection request rejected");
         } catch (error) {

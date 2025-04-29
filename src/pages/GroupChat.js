@@ -148,7 +148,7 @@ const GroupChat = () => {
     };
 
     const performExitGroup = (groupId) => {
-        axios.post("http://localhost:8080/api/chat/groups/exit", {groupId, userId}, { withCredentials: true })
+        axios.post("https://alumni-back-yabh.onrender.com/api/chat/groups/exit", {groupId, userId}, { withCredentials: true })
             .then(() => {
                 toast.success("You have successfully exited the group");
                 setGroupMembers((prev) => prev.filter((member) => member !== userId)); // Update UI
@@ -176,7 +176,7 @@ const GroupChat = () => {
 
     // const updateMessage = (id, newContent) => {
     //     console.log(newContent);
-    //     axios.put(`http://localhost:8080/api/chat/group/edit/${id}`, newContent, {
+    //     axios.put(`https://alumni-back-yabh.onrender.com/api/chat/group/edit/${id}`, newContent, {
     //         headers: { "Content-Type": "text/plain" }
     //     }, { withCredentials: true })
     //         .then((response) => {
@@ -190,7 +190,7 @@ const GroupChat = () => {
 
     // // ✅ Delete Message
     // const deleteMessage = (id) => {
-    //     axios.delete(`http://localhost:8080/api/chat/group/delete/${id}`)
+    //     axios.delete(`https://alumni-back-yabh.onrender.com/api/chat/group/delete/${id}`)
     //         .then(() => {
     //             console.log("Message deleted");
     //             setEditingIndex(null);  // Close the menu after deleting the message
@@ -203,7 +203,7 @@ const GroupChat = () => {
     // };
 
     const updateMessage = (id, newContent) => {
-        axios.put(`http://localhost:8080/api/chat/group/edit/${id}`, newContent, {
+        axios.put(`https://alumni-back-yabh.onrender.com/api/chat/group/edit/${id}`, newContent, {
             headers: { "Content-Type": "text/plain" },
             withCredentials: true
         })
@@ -262,7 +262,7 @@ const GroupChat = () => {
         if (userNames[senderId]) return; // Skip fetching if already stored
 
         try {
-            const response = await fetch(`http://localhost:8080/api/users/${senderId}`);
+            const response = await fetch(`https://alumni-back-yabh.onrender.com/api/users/${senderId}`);
             const data = await response.json();
             console.log(data);
 
@@ -289,7 +289,7 @@ const GroupChat = () => {
     // useEffect(() => {
     //     if (!userId) return;
 
-    //     axios.get("http://localhost:8080/api/chat/groups", { withCredentials: true })
+    //     axios.get("https://alumni-back-yabh.onrender.com/api/chat/groups", { withCredentials: true })
     //         .then(response => {
     //             const allGroups = response.data;
     //             console.log(response.data);
@@ -319,7 +319,7 @@ const GroupChat = () => {
     useEffect(() => {
         if (!userId) return;
     
-        axios.get("http://localhost:8080/api/chat/groups", { withCredentials: true })
+        axios.get("https://alumni-back-yabh.onrender.com/api/chat/groups", { withCredentials: true })
             .then(response => {
                 const allGroups = response.data;
                 console.log(response.data);
@@ -358,7 +358,7 @@ const GroupChat = () => {
         console.log(prevGroupIdRef.current + " + " + groupId);
 
         console.log(groupId)
-        const socket = new SockJS("http://localhost:8080/chat");
+        const socket = new SockJS("https://alumni-back-yabh.onrender.com/chat");
 
 
         const stompClient = new Client({
@@ -464,13 +464,13 @@ const GroupChat = () => {
             console.log(prevselectedGroup + " " + selectedGroup);
 
         prevselectedGroup = selectedGroup.id;
-        axios.get(`http://localhost:8080/api/searchchat/groups/${selectedGroup.id}/members`, { withCredentials: true })
+        axios.get(`https://alumni-back-yabh.onrender.com/api/searchchat/groups/${selectedGroup.id}/members`, { withCredentials: true })
             .then(response => {
                 setGroupMembers(response.data.map(member => member.id));
 
                 // Fetch group messages if user is in the group
                 if (response.data.some(member => member.id === userId)) {
-                    axios.get(`http://localhost:8080/api/chat/groups/${selectedGroup.id}/messages`, { withCredentials: true })
+                    axios.get(`https://alumni-back-yabh.onrender.com/api/chat/groups/${selectedGroup.id}/messages`, { withCredentials: true })
                         .then(res => setGroupMessages(res.data))
                         .catch(error => console.error("Error fetching group messages:", error));
                 }
@@ -479,7 +479,7 @@ const GroupChat = () => {
     }, [selectedGroup, userId]);
 
     const joinGroup = (groupId) => {
-        axios.post(`http://localhost:8080/api/chat/groups/${groupId}/join`, { userId }, { withCredentials: true })
+        axios.post(`https://alumni-back-yabh.onrender.com/api/chat/groups/${groupId}/join`, { userId }, { withCredentials: true })
             .then(() => {
                 toast.success("You have successfully joined the group!");
                 setJoinStatus("You have successfully joined the group!");
@@ -504,7 +504,7 @@ const GroupChat = () => {
     // const createGroup = () => {
     //     const groupName = prompt("Enter group name:");
     //     if (!groupName) return;
-    //     axios.post("http://localhost:8080/api/chat/groups", { name: groupName, createdBy: userId }, { withCredentials: true })
+    //     axios.post("https://alumni-back-yabh.onrender.com/api/chat/groups", { name: groupName, createdBy: userId }, { withCredentials: true })
     //         .then(response => {
     //             const newGroup = response.data;
 
@@ -522,7 +522,7 @@ const GroupChat = () => {
             return;
         }
         
-        axios.post("http://localhost:8080/api/chat/groups", { name: groupName, createdBy: userId }, { withCredentials: true })
+        axios.post("https://alumni-back-yabh.onrender.com/api/chat/groups", { name: groupName, createdBy: userId }, { withCredentials: true })
             .then(response => {
                 const newGroup = response.data;
                 setGroups(prev => ({
@@ -538,7 +538,7 @@ const GroupChat = () => {
 
     useEffect(() => {
         const fetchGroupMessages = (groupId) => {
-            axios.get(`http://localhost:8080/api/chat/groups/${groupId}/messages`, { withCredentials: true })
+            axios.get(`https://alumni-back-yabh.onrender.com/api/chat/groups/${groupId}/messages`, { withCredentials: true })
                 .then(response => setGroupMessages(response.data))
                 .catch(error => console.error("Error fetching group messages:", error));
         };

@@ -10,7 +10,7 @@ const ForgotPassword = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const response = await axios.post("http://localhost:8080/api/forgot-password", { email });
+            const response = await axios.post("https://alumni-back-yabh.onrender.com/api/forgot-password", { email });
             setMessage(response.data); // Success message from backend
         } catch (error) {
             setMessage("Error: Unable to send reset email.");

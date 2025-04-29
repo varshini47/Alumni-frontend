@@ -24,7 +24,7 @@ function Home() {
 
   const handleLogout = async () => {
     try {
-      await axios.post("http://localhost:8080/api/logout", {}, { withCredentials: true });
+      await axios.post("https://alumni-back-yabh.onrender.com/api/logout", {}, { withCredentials: true });
       logoutUser();
       navigate("/");
     } catch (error) {
@@ -39,7 +39,7 @@ function Home() {
 
   const fetchAlumni = async () => {
     try {
-      const response = await axios.get("http://localhost:8080/api/users", { withCredentials: true });
+      const response = await axios.get("https://alumni-back-yabh.onrender.com/api/users", { withCredentials: true });
       setAlumni(response.data.sort((a, b) => b.id - a.id));
     } catch (error) {
       console.error("Error fetching alumni:", error);
@@ -48,7 +48,7 @@ function Home() {
 
   const fetchEvents = async () => {
     try {
-      const response = await axios.get("http://localhost:8080/api/events", { withCredentials: true });
+      const response = await axios.get("https://alumni-back-yabh.onrender.com/api/events", { withCredentials: true });
       const eventsArray = Array.isArray(response.data) ? response.data.reverse() : [response.data];
       setEvents(eventsArray);
     } catch (error) {
@@ -122,7 +122,7 @@ function Home() {
 
     setIsSending(true);
     try {
-      await axios.post("http://localhost:8080/api/email/invite", {
+      await axios.post("https://alumni-back-yabh.onrender.com/api/email/invite", {
         userId: user.id,
         fromEmail: user.email,
         toEmails: emails,

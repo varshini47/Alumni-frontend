@@ -127,7 +127,7 @@ function Home() {
         fromEmail: user.email,
         toEmails: emails,
         name: user.firstName,
-        registrationLink: "http://localhost:3000/register"
+        registrationLink: "https://alumni-frontend-bger.onrender.com/"
       }, { withCredentials: true });
       toast.success("Invitation sent successfully!");
       setEmails([""]); // Reset input fields
@@ -144,7 +144,7 @@ function Home() {
       toast.info("Please log in to invite peers");
       navigate("/login");
     } else {
-      setOpen(true);
+      setOpen(true);    
     }
   };
 
